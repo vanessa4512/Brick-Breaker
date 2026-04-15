@@ -21,6 +21,22 @@ public class Brick : MonoBehaviour
     }
 
     private void Hit() {
+        if (this.unbreakable)
+        {
+            return;
+        }
+
+        this.health--;
+        if (this.health <= 0)
+        {
+            this.gameObject.SetActive(false);
+        }
+        else
+        {
+            this.spriteRenderer.sprite = this.states[this.health-1];
+        }
+
+
 
     }
 
