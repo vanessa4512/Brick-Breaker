@@ -26,7 +26,7 @@ public class Ball : MonoBehaviour
         this.rigidbody.AddForce(force.normalized * this.speed);
     }
 
-    private void CollisionEnter2D(Collision2D collision) {
+    private void OnCollisionEnter2D(Collision2D collision) {
         Ball ball = collision.gameObject.GetComponent<Ball>();
 
         if (ball != null)
@@ -37,7 +37,7 @@ public class Ball : MonoBehaviour
             float offset = paddlePosition.x - contactPoin.x;
             float width = collision.otherCollider.bounds.size.x / 2;
 
-            float currentAngle = Vector2.SignedAngle(Vector2.up, ball.rigidbody.velocity);
+            float currentAngle = Vector2.SignedAngle(Vector2.up, ball.rigidbody.linearVelocity);
             float bounceAngle = (offset /  width) * this.maxBounceAngle;
             float newAngle = Mathf.Clamp (currentAngle + bounceAngle, -this.maxBounceAngle, this.maxBounceAngle);
             this.rigidbody.AddForce(Vector2.up * this.speed * newAngle);
