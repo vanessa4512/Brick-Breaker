@@ -14,6 +14,11 @@ private void Awake() {
        this.rigidbody = GetComponent<Rigidbody2D>();
    }
 
+   public void ResetPaddle() {
+       this.transform.position = new Vector2(0f, this.transform.position.y);
+       this.rigidbody.velocity = Vector2.zero;
+   }
+
    private void Update() {
        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
        {

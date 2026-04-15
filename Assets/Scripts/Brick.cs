@@ -4,8 +4,12 @@ using UnityEngine;
 public class Brick : MonoBehaviour
 {
     public SpriteRenderer spriteRenderer { get; private set; }
+
     public Sprite[]       states;
     public int            health         { get; private set; }
+
+    public int points = 100;
+
     public bool           unbreakable;
 
     private void Awake() {
@@ -13,9 +17,15 @@ public class Brick : MonoBehaviour
     }
 
     private void Start() {
+     ResetBrick();
+    }
+
+    public void ResetBrick() {
         if (!this.unbreakable)
         {
-            this.health = this.states.Length;
+            this.gameObject.SetActive(true);
+
+            this.health                = this.states.Length;
             this.spriteRenderer.sprite = this.states[this.health-1];
         }
     }
@@ -36,7 +46,7 @@ public class Brick : MonoBehaviour
             this.spriteRenderer.sprite = this.states[this.health-1];
         }
 
-
+        FindObjectOfType<GameManager>().Hit(this);
 
     }
 
