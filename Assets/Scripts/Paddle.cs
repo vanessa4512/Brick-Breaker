@@ -16,7 +16,7 @@ private void Awake() {
 
    public void ResetPaddle() {
        this.transform.position = new Vector2(0f, this.transform.position.y);
-       this.rigidbody.velocity = Vector2.zero;
+       this.rigidbody.linearVelocity = Vector2.zero;
    }
 
    private void Update() {

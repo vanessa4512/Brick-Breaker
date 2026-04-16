@@ -20,7 +20,7 @@ public class Ball : MonoBehaviour
 
     public void ResetBall() {
         this.transform.position = Vector2.zero;
-        this.rigidbody.velocity = Vector2.zero;
+        this.rigidbody.linearVelocity = Vector2.zero;
 
         Invoke(nameof(SetRandomTrajectory), 1f);
     }
