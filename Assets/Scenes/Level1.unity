@@ -314,6 +314,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 360756010}
     m_Modifications:
     - target: {fileID: -2902072258631385960, guid: d8f09d97334b845429befeff5f2ba0d0, type: 3}
+      propertyPath: unbreakable
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -2902072258631385960, guid: d8f09d97334b845429befeff5f2ba0d0, type: 3}
       propertyPath: states.Array.size
       value: 3
       objectReference: {fileID: 0}
